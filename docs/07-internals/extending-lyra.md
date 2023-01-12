@@ -1,5 +1,9 @@
 # Extending Lyra
 
+:::info CommonJS support
+The following examples shows how to import Lyra's internals using ESM imports. If you're still using CommonJS, you can import Lyra from `@lyrasearch/lyra/cjs/internals` instead of `@lyrasearch/lyra/internals`.
+:::
+
 Extending Lyra has just become easier than ever. Starting from `v0.3.0`, Lyra exposes some of its internals:
 
 ```javascript
