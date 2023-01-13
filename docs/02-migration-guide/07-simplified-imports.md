@@ -1,9 +1,9 @@
 ---
 sidebar_label: Simplified Imports
-sidebar_position: 6
+sidebar_position: 7
 ---
 
-# Imports
+# Simplified Imports
 
 Before `v0.4.0`, Lyra was available both as a CommonJS and an ESM module. This meant that you could import Lyra in two different ways:
 

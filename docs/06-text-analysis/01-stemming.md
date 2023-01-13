@@ -18,15 +18,17 @@ By default, Lyra uses **the English language analyzer**, but we can override thi
 import { create } from "@lyrasearch/lyra";
 import { stemmer } from "@lyrasearch/lyra/stemmer/it";
 
-const db = await create({
+const db = create({
   schema: {
     author: "string",
     quote: "string",
   },
   defaultLanguage: "italian",
-  tokenizer: {
-    stemmingFn: stemmer,
-  },
+  components: {
+    tokenizer: {
+      stemmingFn: stemmer,
+    }
+  }
 });
 ```
 
@@ -63,13 +65,16 @@ You can disable stemming by setting `enableStemming: false` while initializing a
 ```javascript
 import { create } from "@lyrasearch/lyra";
 
-const db = await create({
+const db = create({
   schema: {
     author: "string",
     quote: "string",
   },
-  tokenizer: {
-    enableStemming: false,
-  },
+  defaultLanguage: "italian",
+  components: {
+    tokenizer: {
+      enableStemming: false
+    }
+  }
 });
 ```

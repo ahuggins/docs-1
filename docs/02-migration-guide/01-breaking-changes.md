@@ -14,5 +14,7 @@ Lyra `v0.4.0` introduces the following breaking changes:
 
 - All the Lyra methods are now async
 - CommonJS is supported via `@lyrasearch/lyra/cjs` instead of `@lyrasearch/lyra`
+- Components
 - Default IDs
 - Simplified imports
+- TypeScript imports

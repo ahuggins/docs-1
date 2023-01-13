@@ -61,7 +61,7 @@ const { id: harryPotter } = insert(movieDB, {
 
 Most of the `insert` function internals are synchronous, so inserting a large
 number of documents in a loop could potentially block the event loop. If you
-have a lot of records, we suggest using the `batchInsert` function.
+have a lot of records, we suggest using the `insertBatch` function.
 
 You can pass a third, optional, parameter to change the batch size (default:
 `1000`). We recommend keeping this number as low as possible to avoid blocking

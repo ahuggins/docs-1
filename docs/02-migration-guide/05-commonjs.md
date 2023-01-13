@@ -1,6 +1,6 @@
 ---
 sidebar_label: CommonJS imports
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # CommonJS Imports
