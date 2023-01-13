@@ -30,7 +30,7 @@ const config = {
           editUrl: "https://github.com/lyrasearch/docs/tree/main/",
           versions: {
             current: {
-              label: 'v0.4.0',
+              label: 'v0.4.x',
               badge: false,
               banner: 'none'
             }

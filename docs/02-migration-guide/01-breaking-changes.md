@@ -3,7 +3,7 @@ sidebar_label: Breaking changes
 sidebar_position: 1
 ---
 
-# Migration guide to v0.4.0
+# Migration guide to v0.4.x
 
 Lyra `v0.4.0` introduces a few breaking changes. This guide will help you migrate your codebase.
 The breaking changes are minimal, and should be easy to fix.
