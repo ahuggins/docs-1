@@ -30,9 +30,11 @@ const db = create({
     quote: "string",
   },
   defaultLanguage: "italian",
-  tokenizer: {
-    stemmingFn: stemmer,
-  },
+  components: {
+    tokenizer: {
+      stemmingFn: stemmer,
+    },
+  }
 });
 ```
 
@@ -75,8 +77,10 @@ const db = create({
     author: "string",
     quote: "string",
   },
-  tokenizer: {
-    enableStemming: false,
-  },
+  components: {
+    tokenizer: {
+      enableStemming: false,
+    }
+  }
 });
 ```
