@@ -63,6 +63,25 @@ const searchResult = await search(movieDB, {
 });
 ```
 
+## Fields Boosting
+
+Starting with Lyra `v0.4.2`, you can use the `boost` interface to boost the
+importance of a field in the search results.
+
+```javascript
+const searchResult = await search(movieDB, {
+  term: "Harry",
+  properties: "*",
+  boost: {
+    title: 2,
+    director: 1.5,
+  }
+});
+```
+
+In this example, we are boosting the `title` field by `2` and the `director` field
+by `1.5`.
+
 ## Filters
 
 The object that defines our query, in this case
@@ -185,6 +204,41 @@ We are searching for all the documents that contains the term `Chris` in the
 By default, Lyra limits the search results to `10`, without any offset
 (so, `0` as offset value).
 :::
+
+## BM25 Algorithm
+
+Lyra uses the [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) algorithm to
+calculate the relevance of a document when searching.
+
+The BM25 algorithm is a **probabilistic** ranking function that uses **term
+frequency** and **inverse document frequency** to calculate the relevance of a
+document.
+
+You can edit the BM25 parameters by using the `relevance` property in the `search`
+configuration object.
+
+```javascript
+const searchResult = await search(movieDB, {
+  term: "Chris",
+  properties: ["director"],
+  relevance: {
+    // Term frequency saturation parameter.
+    // Default value: 1.2
+    // Recommended value: between 1.2 and 2
+    k: 1.2,
+
+    // Length normalization parameter.
+    // Default value: 0.75
+    // Recommended value: > 0.75
+    b: 0.75,
+
+    // Frequency normalization lower bound.
+    // Default value: 0.5
+    // Recommended value: between 0.5 and 1
+    d: 0.5,  
+  },
+});
+```
 
 ## What does the `search` method return?[​](https://docs.lyrasearch.io/usage/search-data#what-does-the-search-method-return) <a href="#what-does-the-search-method-return" id="what-does-the-search-method-return"></a>
 
