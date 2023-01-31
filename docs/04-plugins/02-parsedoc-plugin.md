@@ -58,7 +58,7 @@ An asynchronous function that takes three arguments:
 
 #### `populate`[​](https://deploy-preview-8--lyra-docs.netlify.app/plugins/plugin-parsedoc#populate) <a href="#populate" id="populate"></a>
 
-A function that takes three arguments. Should be used internally by `populateFromGlob`:
+A asynchronous function that takes three arguments. Should be used internally by `populateFromGlob`:
 
 - `db`: the database to populate. Should use Lyra's native `insert` or `insertBatch` methods internally.
 - `data`: raw HTML/Markdown string or Buffer.
@@ -70,3 +70,13 @@ A function that takes three arguments. Should be used internally by `populateFro
     - `split`: consecutive chunks with the same tag will be split into separate documents for the index.
     - `both`: consecutive chunks with the same tag will be split into separate documents for the index, and also merged into one document for the index.
   - `basePath` (optional): a string representing the base path of the file. This is used to generate the `id` field in the index
+
+## CommonJS Imports
+
+Lyra plugins now ships **ESM** modules by default. This allows us to move faster when providing new features and bug fixes, as well as using the `"exports"` field in `package.json` to provide a better developer experience.
+
+CommonJS imports are still supported, but you'll need to import the plugin from `@lyrasearch/plugin-parsedoc/cjs` instead of `@lyrasearch/plugin-parsedoc`:
+
+```diff
+- const { populateFromGlob } = require("@lyrasearch/plugin-parsedoc");
++ const { populateFromGlob } = require("@lyrasearch/plugin-parsedoc/cjs");

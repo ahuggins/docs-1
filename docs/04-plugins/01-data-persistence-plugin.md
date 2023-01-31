@@ -77,7 +77,7 @@ Now we have a Lyra instance containing three quotes. We can use the
 ```javascript
 import { persistToFile } from "@lyrasearch/plugin-data-persistence";
 
-const filePath = persistToFile(originalInstance, "binary", "./quotes.msp");
+const filePath = await persistToFile(originalInstance, "binary", "./quotes.msp");
 ```
 
 ## Restore the database from disk[​](https://docs.lyrasearch.io/plugins/plugin-data-persistence#restore-the-database-from-disk) <a href="#restore-the-database-from-disk" id="restore-the-database-from-disk"></a>
@@ -86,5 +86,15 @@ To restore the database from the disk:
 
 ```javascript
 import { restoreFromFile } from "@lyrasearch/plugin-data-persistence";
-const db = restoreFromFile("binary", filePath);
+const db = await restoreFromFile("binary", filePath);
 ```
+
+## CommonJS Imports
+
+Lyra plugins now ships **ESM** modules by default. This allows us to move faster when providing new features and bug fixes, as well as using the `"exports"` field in `package.json` to provide a better developer experience.
+
+CommonJS imports are still supported, but you'll need to import the plugin from `@lyrasearch/plugin-data-persistence/cjs` instead of `@lyrasearch/plugin-data-persistence`:
+
+```diff
+- const { persistToFile } = require("@lyrasearch/plugin-data-persistence");
++ const { persistToFile } = require("@lyrasearch/plugin-data-persistence/cjs");

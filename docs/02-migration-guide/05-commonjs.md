@@ -15,3 +15,13 @@ CommonJS imports are still supported, but you'll need to import Lyra from `@lyra
 ```
 
 No other changes are required.
+
+## TypeScript
+
+Set `moduleResolution` in the `compilerOptions` in your `tsconfig.json` to be either `Node16` or `NodeNext`.
+
+When importing types, always refer to the standard lyra import:
+
+```ts
+import type { Language } from '@lyrasearch/lyra'
+```
