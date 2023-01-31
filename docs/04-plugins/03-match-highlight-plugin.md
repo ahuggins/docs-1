@@ -46,9 +46,9 @@ const db = await create({
   hooks: { afterInsert },
 }) as LyraWithHighlight<typeof schema>;
 
-insertWithHooks(db, { text: "hello world" });
+await insertWithHooks(db, { text: "hello world" });
 
-const results = searchWithHighlight(db, "hello");
+const results = await searchWithHighlight(db, "hello");
 ```
 
 ## API Reference
@@ -74,3 +74,13 @@ query.
   ...
 ]
 ```
+
+## CommonJS Imports
+
+Lyra plugins now ships **ESM** modules by default. This allows us to move faster when providing new features and bug fixes, as well as using the `"exports"` field in `package.json` to provide a better developer experience.
+
+CommonJS imports are still supported, but you'll need to import the plugin from `@lyrasearch/plugin-match-highlight/cjs` instead of `@lyrasearch/plugin-match-highlight`:
+
+```diff
+- const { searchWithHighlight } = require("@lyrasearch/plugin-match-highlight");
++ const { searchWithHighlight } = require("@lyrasearch/plugin-match-highlight/cjs");

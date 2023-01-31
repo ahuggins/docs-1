@@ -90,3 +90,23 @@ import { boundedLevenshtein } from "@lyrasearch/lyra/internals";
 
 boundedLevenshtein("moon", "lions", 3); // { isBounded: true, distance: 3 }
 ```
+
+# CommonJS Imports
+
+When using CommonJS, internals can be imported in two ways:
+
+1. Use `await import` inside an async function:
+
+   ```js
+   const {tokenize} = await import("@lyrasearch/lyra/internals")
+   ```
+
+2. Use the `requireLyraInternals`:
+
+   ```js
+   const {requireLyraInternals} = require('@lyrasearch/lyra/cjs/internals')
+
+   requireLyraInternals((err, {tokenize}) => {
+     // ...
+   })
+   ``` 
