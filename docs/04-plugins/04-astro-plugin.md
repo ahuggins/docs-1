@@ -67,7 +67,7 @@ To use the generated DBs in your pages, you can include a script in your `<head>
   <!-- Other stuff -->
   <script>
     // Astro will do the job of bundling everything for you
-    import { getLyraDB, search } from "@lyrasearch/plugin-astro/clientside"
+    import { getLyraDB, search } from "@lyrasearch/plugin-astro/client"
 
     // We load the DB that we generated at build time, this is an asynchronous
     // operation, so we must either await, or rely on `.then` calls.
