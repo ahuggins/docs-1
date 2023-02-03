@@ -23,7 +23,7 @@ As for now, Lyra supports 12 languages when it comes to stop-words removal:
 
 ## Disabling stop-words removal
 
-You can disable stop-words removal by setting `enableStopWords: false` when creating a new Lyra instance:
+By default, `enableStopWords` is `true` but you can disable stop-words removal by setting `enableStopWords: false` when creating a new Lyra instance:
 
 ```javascript
 import { create } from "@lyrasearch/lyra";
