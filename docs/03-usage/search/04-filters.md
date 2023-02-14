@@ -37,8 +37,7 @@ const results = await search({
   term: 'prestige',
   where: {
     year: {
-      gt: 2000,
-      lt: 2008,
+      gte: 2000,
     },
     'meta.rating': {
       between: [5, 10],
