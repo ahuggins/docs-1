@@ -32,12 +32,13 @@ const db = create({
 });
 ```
 
-Right now, Lyra supports 24 languages and stemmers out of the box:
+Right now, Lyra supports 26 languages and stemmers out of the box:
 
-- Armenian
 - Arabic
+- Armenian
+- Bulgarian
 - Danish
-- Spanish
+- Dutch
 - English
 - Finnish
 - French
@@ -46,15 +47,16 @@ Right now, Lyra supports 24 languages and stemmers out of the box:
 - Hindi
 - Hungarian
 - Indonesian
-- Italian
 - Irish
-- Dutch
+- Italian
 - Nepali
 - Norwegian
 - Portuguese
 - Romanian
 - Russian
 - Serbian
+- Slovenian
+- Spanish
 - Swedish
 - Turkish
 - Ukrainian

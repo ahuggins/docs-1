@@ -12,7 +12,7 @@ If you find an bug, please [open an issue](https://github.com/LyraSearch/lyra/is
 Starting with Lyra `v0.4.8`, you can use the `filters` interface to filter the
 search results.
 
-As for now, filters are only available for numeric properties.
+Filters are available for both numeric and boolean properties.
 
 If we consider the following schema:
 
@@ -25,6 +25,7 @@ const db = await create({
     meta: {
       rating: 'number',
       length: 'number',
+      favorite: 'boolean',
     }
   }
 })
@@ -42,6 +43,7 @@ const results = await search({
     'meta.rating': {
       between: [5, 10],
     },
+    'meta.favorite': true,
     length: {
       gt: 60,
     }
@@ -51,7 +53,7 @@ const results = await search({
 
 ## Filters operators
 
-As for now, the following operators are available:
+As for now, the following operators are available for numeric properties:
 
 | Operator | Description | Example |
 | -------- | ----------- | ------- |
@@ -61,3 +63,14 @@ As for now, the following operators are available:
 | `lte` | Less than or equal to | `year: { lte: 2000 }` |
 | `eq` | Equal to | `year: { eq: 2000 }` |
 | `between` | Between two values (inclusive) | `year: { between: [2000, 2008] }` |
+
+For boolean properties, you can simply set the property to `true` or `false`:
+
+```javascript
+const results = await search({
+  term: 'prestige',
+  where: {
+    'meta.favorite': true,
+  }
+})
+```
