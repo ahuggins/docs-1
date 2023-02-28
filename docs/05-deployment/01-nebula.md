@@ -46,7 +46,7 @@ output:
   directory: tmp
 ```
 
-As you might image, the `schema` section contains the same schema you would usually pass to Lyra's `create` method.
+As you might imagine, the `schema` section contains the same schema you would usually pass to Lyra's `create` method.
 
 The `input.path` must point to a local JSON file or a Javascript exporting (both ESM and CJS are supported) a function. In both cases the resulting data will be the data Nebula will index.
 
